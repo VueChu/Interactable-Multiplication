@@ -29,7 +29,7 @@ If the user presses the wrong button, a red LED will luminate.
       - Pin will store the specified pin.
 
 	- ```int value```
-		- Value will hold a possible answer that would be displayed.
+		- Value will hold a possible answer.
 
 	- ```bool pressed```
 	  - Pressed is a flag variable that keeps track whether the button has been pressed.
@@ -37,8 +37,7 @@ If the user presses the wrong button, a red LED will luminate.
 -	### CONSTRUCTOR
     - ```Buttons(int pin, int value)```
     
-      - By taking in pin and value as its parameters, it will assign those values to the current object's attributes, 
-		    setting the boolean flag pressed to false, and initializing the objects to the pins.
+      - Instantiates the Buttons class by taking in pin and value.
 
 - ### FUNCTIONS
   - ```void initButtons()```
