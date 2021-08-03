@@ -14,7 +14,7 @@ If the user presses the correct button, a green LED will luminate.
 If the user presses the wrong button, a red LED will luminate.
 
 ### Materials needed:
-- Arduino - 1
+- Arduino Uno or any board that can utilize Serial - 1 (Click [here](https://www.arduino.cc/reference/en/language/functions/communication/serial/) to check which type of Serial you would have to use for this program.)
 - Breadboard - 1
 - 1kΩ resistors - 7
 - LED - 7
