@@ -3,7 +3,7 @@
  * The user has unlimited time to answer the question.
  * If the user answered correctly, the green LED will luminate.
  * If the user answered incorrectly, the red LED will luminate.
- * The yellow LED is an indicator that the program is prcoessing inputs.
+ * The yellow LED is an indicator that the program is waiting for a button press.
  */
  
 const int LED_RIGHT = 13, LED_WRONG = 12, LED_ON = 11;  //LED Display:: GREEN = LED_RIGHT :: RED = LED_WRONG :: YELLOW = LED_ON.
@@ -11,7 +11,10 @@ const int MAX_BUTTONS = 4;
 int randNum1, randNum2, userAnswer;
 int ansArray[MAX_BUTTONS];
 
-
+/*
+ * The class Buttons is used for creating an object that will be assigned to a physical button on a breadboard.
+ * This object of type Buttons will hold a pin number on an Arduino, and a value (answer), both of type int.
+ */
 class Buttons
 {
   private:
@@ -37,6 +40,7 @@ class Buttons
     {
       pinMode(this->pin, INPUT);
     }
+    
     /*
      * isPressed()
      * Returns true if a HIGH input is read from one of the buttons. Returns false if a LOW input is read from one of the buttons.
@@ -52,6 +56,7 @@ class Buttons
         return false;
       }
     }
+    
     /*
      * getButtonAnswer()
      * Returns the current object's value of type int.
@@ -73,6 +78,10 @@ void setup() {
   randomSeed(analogRead(0));
 }
 
+/*
+ * initializations() 
+ * Initializes/reinitializes the answers, buttons, and prompts.
+ */
 void initializations()
 {
   randomizer();
@@ -88,9 +97,10 @@ void loop()
     buttonPress();
     delay(2000);
 }
+
 /*
- * buttonPress() loops forever until a user presses a button. 
- * 
+ * buttonPress() 
+ * Loops forever until a user presses a button. 
  */
 void buttonPress()
 {
@@ -129,6 +139,11 @@ void buttonPress()
   }
 }
 
+/*
+ * setAnswers() 
+ * Will randomly assign a pin that will have the right answer, whereas the other pins will have random answers to them.
+ * These answers will be stored in an ansArray (Answer Array).
+ */
 void setAnswers()
 {
   int answer = getAnswer();
@@ -156,7 +171,8 @@ void setAnswers()
 }
 
 /*
- * setButtons() will create an array of objects of type Buttons and set up the pins and values.
+ * setButtons() 
+ * Will create an array of objects of type Buttons and set up the pins and values.
  */
 void setButtons()
 {
@@ -169,12 +185,20 @@ void setButtons()
   }
 }
 
+/*
+ * randomizer() 
+ * Randomizes 2 numbers, randNum1 and randNum2.
+ */
 void randomizer()
 {
   randNum1 = random(0,12);
   randNum2 = random(0,12);
 }
 
+/*
+ * prompt() 
+ * Will print the multiplication problem to the user through the Serial Monitor.
+ */
 void prompt()
 {
   Serial.print(randNum1);
@@ -188,6 +212,10 @@ void prompt()
   }
 }
 
+/*
+ * getAnswer() 
+ * Will return the product of randNum1 and randNum2.
+ */
 int getAnswer()
 {
   int answer = randNum1 * randNum2;
