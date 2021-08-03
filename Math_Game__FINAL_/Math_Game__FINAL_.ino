@@ -6,7 +6,7 @@
  * The yellow LED is an indicator that the program is waiting for a button press.
  */
  
-const int LED_RIGHT = 13, LED_WRONG = 12, LED_ON = 11;  //LED Display:: GREEN = LED_RIGHT :: RED = LED_WRONG :: YELLOW = LED_ON.
+const int LED_RIGHT = 13, LED_WRONG = 12, LED_STANDBY = 11;  //LED Display:: GREEN = LED_RIGHT :: RED = LED_WRONG :: YELLOW = LED_STANDBY.
 const int MAX_BUTTONS = 4;
 int randNum1, randNum2, userAnswer;
 int ansArray[MAX_BUTTONS];
@@ -74,7 +74,7 @@ void setup() {
   Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
   pinMode(LED_RIGHT, OUTPUT); //Pin 13 -- GREEN
   pinMode(LED_WRONG, OUTPUT); //Pin 12 -- RED
-  pinMode(LED_ON, OUTPUT); //Pin 11 -- ON
+  pinMode(LED_STANDBY, OUTPUT); //Pin 11 -- ON
   randomSeed(analogRead(0));
 }
 
@@ -107,7 +107,7 @@ void buttonPress()
   bool pressed = false;
   while(pressed == false) //This will loop forever until the user presses a button.
   {
-    digitalWrite(LED_ON, HIGH);
+    digitalWrite(LED_STANDBY, HIGH);
     for(int i = 0; i < MAX_BUTTONS; i++)
     {
       if(buttonArray[i]->isPressed())
@@ -120,7 +120,7 @@ void buttonPress()
           delay(100);
           Serial.println("Correct! You answered : ");
           Serial.println(buttonArray[i]->getButtonAnswer());
-          digitalWrite(LED_ON, LOW);
+          digitalWrite(LED_STANDBY, LOW);
           return;
         }
         else
@@ -131,7 +131,7 @@ void buttonPress()
           delay(100);
           Serial.println("Incorrect! You answered : ");
           Serial.println(buttonArray[i]->getButtonAnswer());
-          digitalWrite(LED_ON, LOW);
+          digitalWrite(LED_STANDBY, LOW);
           return;
         }
       }
