@@ -1,4 +1,4 @@
-# Interactable-Multiplication
+# Interactive_Multiplication
 This is an interactable multiplication game made on the Arduino IDE.
 
 # Author's Note:
