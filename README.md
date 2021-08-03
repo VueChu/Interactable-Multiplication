@@ -1,12 +1,12 @@
 # Interactive_Multiplication
-This is an interactable multiplication game made on the Arduino IDE.
+This is an interactive multiplication game made on the Arduino IDE.
 
 # Author's Note:
 I created this for the sole purpose of learning how to program on an Arduino and practicing object oriented programming to assign objects to buttons.
 If you see anything that can be improved or have any tips (including this readme file), I would greatly appreciate any sort of feedback.
 
 ### Summary:
-This program's purpose is to be an interactable math game.
+This program's purpose is to be an interactive math game.
 The system will prompt the user a multiplication problem and give them 4 possible answers to choose from.
 This would be visually displayed through the serial monitor in the Arduino IDE.
 The system will wait for the user's input from the buttons with a yellow LED inidicating that it is waiting for input.
