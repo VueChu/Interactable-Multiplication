@@ -31,9 +31,6 @@ If the user presses the wrong button, a red LED will luminate.
 	- ```int value```
 		- Value will hold a possible answer.
 
-	- ```bool pressed```
-	  - Pressed is a flag variable that keeps track whether the button has been pressed.
-
 -	### CONSTRUCTOR
     - ```Buttons(int pin, int value)```
     
@@ -45,10 +42,12 @@ If the user presses the wrong button, a red LED will luminate.
 	  - Initializes the pins on the arduino board by utilizing the current object's pin value, and set it as an input pin.
 
   - ```bool isPresed()```
+  
     - Returns true if a HIGH input is read from one of the buttons. Returns false if a LOW input is read from one of the buttons.
 
   - ```int getButtonAnswer()```
-    - Returns the current object's value.
+
+    - Returns the current object's value of type int.
 
 ### ---End of Button class---
 ### GLOBAL VARIABLES WORTH MENTIONING
@@ -57,22 +56,32 @@ If the user presses the wrong button, a red LED will luminate.
 
   - buttonArray is a pointer and used as an array of objects of type Buttons.
 
-### FUNCTIONS (Outside of Button Class)
+### FUNCTIONS
+- ```void initializations()```
+
+  - Initializes/Reinitializes randNum1, randNum2, and the answer positions.
+
 - ```void buttonPress()```
   
   - Loops forever until an input signal is read as a HIGH from any of the buttons. 
 
 - ```void setAnswers()```
+
   - Randomly select an index that will contain the correct answer. All of the other indexes will have randomly generated answers, whereas the index with the correct answer will be retrieved from the function getAnswer().
 
 - ```void setButtons()```
+
   - Populates the buttonsArray by instantiating the Buttons class.
 
 - ```void randomizer()```
+
   - Randomize global variables of type int, randNum1 and randNum2, numbers between 0 through 11. (0,12). 
 
 - ```void prompt()```
+
   - Outputs to the serial monitor a multiplication problem and 4 possible answers to choose from.
 
 - ```int getAnswer()```
-  - Returns the product of randNum1 and randNum2.
+
+  - Returns the product of randNum1 and randNum2 of type int.
+
