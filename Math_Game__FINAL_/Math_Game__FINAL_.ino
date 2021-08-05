@@ -157,7 +157,7 @@ void setAnswers()
     }
     else
     {
-      if(notAnswer == answer) //If by any chance that notAnswer is actually the same as answer then re-randomize the number.
+      if(notAnswer == answer)
       {
         notAnswer = answer/2; //The chances of notAnswer being answer is still possible. So if that is the case, divide by 2.
         ansArray[i] = notAnswer;
